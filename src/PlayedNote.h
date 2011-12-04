@@ -1,15 +1,20 @@
-#include <time.h>
+#ifndef PLAYED_NOTE
+#define PLAYED_NOTE
+
+#include <stddef.h>
+#include <sys/time.h>
 #include "Note.h"
 
 class PlayedNote {
  private:
   Note note;
-  struct time_val beginTime;
-  struct time_val endTime;
+  struct timeval beginTime;
+  struct timeval endTime;
 
  public:
-  PlayedNote(Note note);
+  PlayedNote(const Note& note);
   Note getNote();
-  struct time_val getBeginTime();
-  struct time_val getEndTime();
-}
+  struct timeval getBeginTime();
+  struct timeval getEndTime();
+};
+#endif

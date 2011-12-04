@@ -1,3 +1,5 @@
+#ifndef NOTES
+#define NOTES
 class Note {
  private:
   unsigned int frequency;
@@ -22,3 +24,4 @@ class Note {
   unsigned int getDecayPercent();
 
 };
+#endif
