@@ -3,10 +3,12 @@
 #include <stdio.h>
 #include <getopt.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <string.h>
 #include <math.h>
 #include <jack/jack.h>
 #include <jack/transport.h>
+#include <pthread.h>
 //#include <queue>
 #include <deque>
 
@@ -29,6 +31,7 @@ class JackByTheNotes {
   double *amp;
   jack_default_audio_sample_t scale, scale2;
   int newNote;
+  pthread_t messenger;
   
   // std::priority_queue<Note> currentNotes;
   std::deque<PlayedNote> currentNotes;
@@ -38,7 +41,13 @@ class JackByTheNotes {
  public:
   JackByTheNotes();
 
+  void activate();
+  void play(jack_nframes_t nframes);
   void playNote(Note note);
   void checkNote();
+  void connect();
+  static void * startConnection(void * instance);
 };
+
+int processAll(jack_nframes_t nframes, void * arg);
 #endif

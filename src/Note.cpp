@@ -1,6 +1,6 @@
 #include "Note.h"
 
-Note::Note(unsigned int frequency, double volume = 100, unsigned int duration = 300):frequency(frequency), volume(volume), duration(duration){}
+Note::Note(unsigned int frequency, double volume = 100, unsigned int duration = 300):frequency(frequency), volume(volume), duration(duration), attackPercent(0), decayPercent(0){}
 
 bool Note::setFrequency(unsigned int frequency) {
   if ((frequency < 20) || (frequency > 20000)) {
