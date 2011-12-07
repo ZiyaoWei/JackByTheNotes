@@ -1,6 +1,6 @@
 #include "Note.h"
 
-Note::Note(unsigned int frequency, double volume = 100, unsigned int duration = 300):frequency(frequency), volume(volume), duration(duration), attackPercent(0), decayPercent(0){}
+Note::Note(unsigned int frequency, double volume = 100, unsigned int duration = 300):frequency(frequency), volume(volume), duration(duration), attackPercent(4), decayPercent(95){}
 
 bool Note::setFrequency(unsigned int frequency) {
   if ((frequency < 20) || (frequency > 20000)) {
@@ -47,22 +47,22 @@ bool Note::setDecayPercent(unsigned int decayPercent) {
   }
 }
 
-unsigned int Note::getFrequency() {
+unsigned int Note::getFrequency() const {
   return frequency;
 }
 
-double Note::getVolume() {
+double Note::getVolume() const {
   return volume;
 }
 
-unsigned int Note::getDuration() {
+unsigned int Note::getDuration() const {
   return duration;
 }
 
-unsigned int Note::getAttackPercent() {
+unsigned int Note::getAttackPercent() const {
   return attackPercent;
 }
 
-unsigned int Note::getDecayPercent() {
+unsigned int Note::getDecayPercent() const {
   return decayPercent;
 }

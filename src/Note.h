@@ -17,11 +17,11 @@ class Note {
   bool setAttackPercent(unsigned int attackPercent);
   bool setDecayPercent(unsigned int decayPercent);
 
-  unsigned int getFrequency();
-  double getVolume();
-  unsigned int getDuration();
-  unsigned int getAttackPercent();
-  unsigned int getDecayPercent();
+  unsigned int getFrequency() const;
+  double getVolume() const;
+  unsigned int getDuration() const;
+  unsigned int getAttackPercent() const;
+  unsigned int getDecayPercent() const;
 
 };
 #endif
